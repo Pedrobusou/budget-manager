@@ -8,6 +8,7 @@ function App() {
   const [budget, setBudget] = useState(0);
   const [remaining, setRemaining] = useState(0);
   const [expenses, setExpenses] = useState([]);
+  const [expense, setExpense] = useState({});
 
   const createExpense = expense => {
     setExpenses([...expenses, expense]);
@@ -25,7 +26,7 @@ function App() {
         ) : (
           <div className="row">
             <div className="one-half column">
-              <ExpenseForm createExpense={createExpense} />
+              <ExpenseForm setExpense={setExpense} />
             </div>
             <div className="one-half column">
               <ExpensesList expenses={expenses} />
