@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 
+const ExpenseForm = ({createExpense}) => {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState(0);
 
   const handleSubmit = event => {
     event.preventDefault();
     //TODO: validate
+    createExpense({name, amount});
 
     setName('');
     setAmount(0);

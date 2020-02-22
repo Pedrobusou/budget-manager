@@ -5,6 +5,11 @@ import ExpenseForm from './components/ExpenseForm';
 function App() {
   const [budget, setBudget] = useState(0);
   const [remaining, setRemaining] = useState(0);
+  const [expenses, setExpenses] = useState([]);
+
+  const createExpense = expense => {
+    setExpenses([...expenses, expense]);
+  };
 
   return (
     <div className="container">
@@ -13,14 +18,16 @@ function App() {
       </header>
 
       <div className="content content--main">
-        <BudgetForm setBudget={setBudget} setRemaining={setRemaining} />
-
-        <div className="row">
-          <div className="one-half column">
-            <ExpenseForm />
+        {budget === 0 ? (
+          <BudgetForm setBudget={setBudget} setRemaining={setRemaining} />
+        ) : (
+          <div className="row">
+            <div className="one-half column">
+              <ExpenseForm createExpense={createExpense} />
+            </div>
+            <div className="one-half column">2</div>
           </div>
-          <div className="one-half column">2</div>
-        </div>
+        )}
       </div>
     </div>
   );
