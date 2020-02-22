@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import Error from './Error';
 
 const BudgetForm = ({}) => {
   const [budget, setBudget] = useState(0);
@@ -26,6 +27,9 @@ const BudgetForm = ({}) => {
   return (
     <Fragment>
       <h2>Set up your budget</h2>
+
+      {error && <Error msg="Invalid budget value" />}
+
       <form onSubmit={handleSubmit}>
         <input
           type="number"
