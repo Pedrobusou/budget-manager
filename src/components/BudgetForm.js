@@ -1,27 +1,25 @@
 import React, {Fragment, useState} from 'react';
 import Error from './Error';
 
-const BudgetForm = ({}) => {
-  const [budget, setBudget] = useState(0);
+const BudgetForm = ({setBudget, setRemaining}) => {
+  const [value, setValue] = useState(0);
   const [error, setError] = useState(false);
 
   const handleChange = event => {
-    setBudget(+event.target.value);
+    setValue(+event.target.value);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    setError(false);
-
-    if (budget < 1) {
+    if (value < 1) {
       setError(true);
       return;
     }
 
     setError(false);
-
-    //TODO: next actions
+    setBudget(value);
+    setRemaining(value);
   };
 
   return (
