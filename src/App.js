@@ -1,5 +1,5 @@
 import React from 'react';
-import BudgetForm from './components/budgetForm';
+import BudgetForm from './components/BudgetForm';
 
 function App() {
   return (
