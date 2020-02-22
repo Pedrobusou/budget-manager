@@ -1,13 +1,20 @@
 import React, {useState} from 'react';
+import Error from './Error';
 
 const ExpenseForm = ({createExpense}) => {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState(0);
+  const [error, setError] = useState(false);
 
   const handleSubmit = event => {
     event.preventDefault();
-    //TODO: validate
-    createExpense({name, amount});
+
+    if (amount < 1 || !name.trim()) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
 
     setName('');
     setAmount(0);
@@ -16,6 +23,8 @@ const ExpenseForm = ({createExpense}) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add Expense</h2>
+
+      {error && <Error msg="Invalid field values" />}
 
       <div className="field">
         <label htmlFor="name">Name</label>
