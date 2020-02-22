@@ -92,35 +92,3 @@ h2 {
     }
   }
 }
-
-#expenses {
-  margin-bottom: 30px;
-}
-
-.expenses {
-  margin-bottom: 2rem;
-
-  li {
-    list-style: none;
-    margin-bottom: 0rem;
-    border-bottom: 1px solid #e1e1e1;
-    padding: 1rem 0;
-
-    &:last-of-type {
-      margin-bottom: 0 !important;
-    }
-
-    p {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0;
-
-      .expense {
-        background-color: #004085;
-        padding: 1rem;
-        color: white;
-      }
-    }
-  }
-}

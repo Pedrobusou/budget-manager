@@ -1,0 +1,21 @@
+.expense {
+  list-style: none;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 1rem 0;
+  margin-bottom: 0;
+
+  p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+
+    .amount {
+      background-color: #004085;
+      padding: 1rem;
+      color: white;
+      min-width: 50px;
+      text-align: center;
+    }
+  }
+}
