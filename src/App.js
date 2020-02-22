@@ -17,7 +17,7 @@ function App() {
       setRemaining(remaining - expense.amount);
       setExpenseCreated(false);
     }
-  }, [expense]);
+  }, [expense, expenseCreated, expenses, remaining]);
 
   return (
     <div className="container">
