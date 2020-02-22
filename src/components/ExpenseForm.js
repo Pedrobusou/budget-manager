@@ -1,27 +1,41 @@
 import React, {useState} from 'react';
 
-const ExpenseForm = ({}) => {
-  const [expense, setExpense] = useState(0);
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState(0);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    //TODO: validate
+
+    setName('');
+    setAmount(0);
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h2>Add Expense</h2>
 
       <div className="field">
-        <label>Name</label>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
+          name="name"
           className="u-full-width"
-          placeholder="Expense name"
+          placeholder="Skates"
+          value={name}
+          onChange={e => setName(e.target.value)}
         />
       </div>
 
       <div className="field">
-        <label>Amount</label>
+        <label htmlFor="amount">Amount</label>
         <input
           type="number"
+          name="amount"
           className="u-full-width"
-          placeholder="Expense amount"
+          placeholder="200"
+          value={amount}
+          onChange={e => setAmount(+e.target.value)}
         />
       </div>
 
