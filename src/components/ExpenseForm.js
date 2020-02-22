@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Error from './Error';
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 
 const ExpenseForm = ({setExpense, setExpenseCreated}) => {
   const [name, setName] = useState('');
@@ -59,6 +60,11 @@ const ExpenseForm = ({setExpense, setExpenseCreated}) => {
       />
     </form>
   );
+};
+
+ExpenseForm.propTypes = {
+  setExpense: PropTypes.func.isRequired,
+  setExpenseCreated: PropTypes.func.isRequired
 };
 
 export default ExpenseForm;
