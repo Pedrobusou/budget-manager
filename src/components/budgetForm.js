@@ -2,6 +2,7 @@ import React, {Fragment, useState} from 'react';
 
 const BudgetForm = ({}) => {
   const [budget, setBudget] = useState(0);
+  const [error, setError] = useState(false);
 
   const handleChange = event => {
     setBudget(+event.target.value);
@@ -10,7 +11,15 @@ const BudgetForm = ({}) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    //TODO: validate
+    setError(false);
+
+    if (budget < 1) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+
     //TODO: next actions
   };
 
